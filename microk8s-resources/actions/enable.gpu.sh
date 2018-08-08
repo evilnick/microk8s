@@ -31,6 +31,6 @@ fi
 "$SNAP/microk8s-enable.wrapper" dns
 
 echo "Applying manifest"
-"$SNAP/kubectl" "--kubeconfig=$SNAP/client.config" "apply" "-f" "${SNAP}/actions/gpu.yaml"
+"$SNAP/kubectl" "--kubeconfig=$SNAP_DATA/credentials/client.config" "apply" "-f" "${SNAP}/actions/gpu.yaml"
 
 echo "NVIDIA is enabled"
