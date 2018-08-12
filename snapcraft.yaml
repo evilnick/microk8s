@@ -43,7 +43,7 @@ apps:
   reset:
     command: microk8s-reset.wrapper
   istioctl:
-    command: istioctl --kubeconfig=$SNAP/client.config
+    command: istioctl --kubeconfig=${SNAP_DATA}/credentials/client.config
 
 parts:
   libnftnl:
