@@ -13,7 +13,7 @@ snap install microk8s --classic --beta
 ```
 
 > At this time microk8s is an early beta, while this should be safe to install please beware.
-> In order to install microk8s make sure port 8080 is not used.
+> There are a few ports that need to be open for microk8s to install successfully. 8080 and 6443 are the most common ones. Please go though the [list of used ports](docs/ports.md) and the security implications involved in installing microk8s.
 
 ### Accessing Kubernetes
 
