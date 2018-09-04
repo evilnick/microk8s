@@ -43,7 +43,7 @@ apps:
   reset:
     command: microk8s-reset.wrapper
   istioctl:
-    command: istioctl --kubeconfig=${SNAP_DATA}/credentials/client.config
+    command: istioctl --kubeconfig=$SNAP/client.config
 
 parts:
   libnftnl:
@@ -93,10 +93,13 @@ parts:
     - file
     stage-packages:
     - util-linux
+<<<<<<< 995499b27edbefd10754efe0fdfa05679c7ca133
     - socat
+=======
     - libssl1.0.0
     - openssl
     - coreutils
+>>>>>>> Securing microk8s services
     source: .
     override-build: |
       set -eu
