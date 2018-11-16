@@ -25,6 +25,7 @@ def validate_dns():
     output = ""
     while attempt >= 0:
         output = kubectl("exec -ti busybox -- nslookup kubernetes.default")
+        print(output)
         if "Address 1: 10.152.183.1 kubernetes.default.svc.cluster.local" in output:
             break
         time.sleep(4)
