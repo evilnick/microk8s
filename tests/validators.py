@@ -25,11 +25,15 @@ def validate_dns():
         kubectl("apply -f {}".format(manifest))
         wait_for_pod_state("busybox", "default", "running")
         time.sleep(10)
-        output = kubectl("exec -ti busybox -- nslookup kubernetes.default")
-        print(output)
-        if "Address 1: 10.152.183.1 kubernetes.default.svc.cluster.local" in output:
-            kubectl("delete -f {}".format(manifest))
-            break
+        try:
+            output = kubectl("exec -ti busybox -- nslookup kubernetes.default")
+            print(output)
+            if "Address 1: 10.152.183.1 kubernetes.default.svc.cluster.local" in output:
+                kubectl("delete -f {}".format(manifest))
+                break
+                kubectl("delete -f {}".format(manifest))
+        except:
+            pass
         kubectl("delete -f {}".format(manifest))
         time.sleep(4)
         attempt -= 1
