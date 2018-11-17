@@ -31,7 +31,6 @@ def validate_dns():
             if "Address 1: 10.152.183.1 kubernetes.default.svc.cluster.local" in output:
                 kubectl("delete -f {}".format(manifest))
                 break
-                kubectl("delete -f {}".format(manifest))
         except:
             pass
         kubectl("delete -f {}".format(manifest))
